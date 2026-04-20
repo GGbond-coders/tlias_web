@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import java.time.LocalDateTime;
 
 /**
- * 部门实体类
+ * 部门实体类0000
  */
 @Data
 @NoArgsConstructor
