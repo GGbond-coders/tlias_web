@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ed58b6b-bf35-4ccf-953c-de7ca6633fec" name="更改" comment="day01：部门管理功能" />
+    <list default="true" id="0ed58b6b-bf35-4ccf-953c-de7ca6633fec" name="更改" comment="day01：部门管理功能">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/controller/DeptController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/controller/DeptController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/service/impl/DeptServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/service/impl/DeptServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/controller/DeptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/controller/DeptController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/service/impl/DeptServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/service/impl/DeptServiceImpl.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,17 +28,23 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--follow-tags" />
+        <option name="title" value="Current Branch" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "GGbond-coders"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;GGbond-coders&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
-    "url": "https://github.com/GGbond-coders/Tlias_web_develop.git",
+    "url": "https://github.com/GGbond-coders/tlias_web.git",
     "accountId": "cfb35b32-9d2f-46b4-b21b-c279c7025e13"
   }
 }]]></component>
@@ -56,6 +72,7 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
+    "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.TliasSystemApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "D:/code/java/tlias-system",
@@ -105,6 +122,8 @@
       <updated>1776677039877</updated>
       <workItem from="1776677041151" duration="462000" />
       <workItem from="1776677713902" duration="8809000" />
+      <workItem from="1776689704530" duration="378000" />
+      <workItem from="1776690091018" duration="1931000" />
     </task>
     <task id="LOCAL-00001" summary="day01：部门管理功能">
       <option name="closed" value="true" />
@@ -122,7 +141,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776689455718</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Revert &quot;day01：部门管理功能&quot;&#10;&#10;This reverts commit f1897931">
+      <option name="closed" value="true" />
+      <created>1776690007579</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1776690007579</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +160,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin1/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -141,7 +180,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="day01：部门管理功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="day01：部门管理功能" />
+    <MESSAGE value="Revert &quot;day01：部门管理功能&quot;&#10;&#10;This reverts commit f1897931" />
+    <option name="LAST_COMMIT_MESSAGE" value="Revert &quot;day01：部门管理功能&quot;&#10;&#10;This reverts commit f1897931" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

@@ -8,7 +8,12 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+logging:
+  config: classpath:log4j2-spring.xml
+  level:
+    com.tlias: info
+    org.springframework: info
 
 server:
   port: 8080

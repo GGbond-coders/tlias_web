@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    status="warn" 表示Log4j2自身的日志级别为warn
+    monitorInterval="5" 表示每5秒自动重新加载配置文件
+-->
+<Configuration status="warn" monitorInterval="5">
+    <Properties>
+        <!-- 定义日志输出格式 -->
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</Property>
+    </Properties>
+
+    <Appenders>
+        <!-- 控制台输出 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <!-- 只输出level及以上级别的信息 -->
+            <ThresholdFilter level="debug" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- 根日志配置 -->
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+
+        <!-- Spring框架日志 -->
+        <Logger name="org.springframework" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+
+        <!-- MyBatis日志 -->
+        <Logger name="org.apache.ibatis" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        
+        <!-- 项目业务日志 -->
+        <Logger name="com.tlias" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>
