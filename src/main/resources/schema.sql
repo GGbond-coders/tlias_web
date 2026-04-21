@@ -51,3 +51,17 @@ CREATE TABLE emp_expr (
     begin DATE COMMENT '开始时间',
     end DATE COMMENT '结束时间'
 ) COMMENT '员工工作经历表';
+
+-- 创建操作日志表
+DROP TABLE IF EXISTS operate_log;
+CREATE TABLE operate_log (
+    id INT PRIMARY KEY AUTO_INCREMENT COMMENT '主键ID',
+    operate_user INT COMMENT '操作人ID',
+    operate_time DATETIME NOT NULL COMMENT '操作时间',
+    class_name VARCHAR(100) NOT NULL COMMENT '操作的类名',
+    method_name VARCHAR(100) NOT NULL COMMENT '操作的方法名',
+    method_params VARCHAR(500) COMMENT '方法参数',
+    return_value VARCHAR(2000) COMMENT '返回值',
+    cost_time BIGINT COMMENT '方法执行耗时(单位:ms)',
+    state INT NOT NULL COMMENT '操作状态: 1成功, 0失败'
+) COMMENT '操作日志表';

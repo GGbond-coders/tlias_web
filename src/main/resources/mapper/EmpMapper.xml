@@ -22,22 +22,37 @@
         LEFT JOIN dept d ON e.dept_id = d.id
         <where>
             <if test="name != null and name != ''">
-                AND e.name LIKE CONCAT('%', #{name}, '%')// 员工姓名,字符串拼接
+                AND e.name LIKE CONCAT('%', #{name}, '%')
             </if>
             <if test="gender != null">
-                AND e.gender = #{gender}// 员工性别
+                AND e.gender = #{gender}
             </if>
             <if test="deptId != null">
-                AND e.dept_id = #{deptId}// 员工部门
+                AND e.dept_id = #{deptId}
             </if>
-            <if test="begin != null ">
-                AND DATE(e.entry_date) >= #{begin}// 员工入职日期
+            <if test="begin != null">
+                AND DATE(e.entry_date) &gt;= #{begin}
             </if>
             <if test="end != null">
-                AND DATE(e.entry_date) &lt;= #{end}// 员工入职日期
+                AND DATE(e.entry_date) &lt;= #{end}
             </if>
         </where>
         ORDER BY e.update_time DESC
     </select>
+
+    <!-- 新增员工 -->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO emp (username, password, name, gender, phone, dept_id, entry_date, create_time, update_time)
+        VALUES (#{username}, #{password}, #{name}, #{gender}, #{phone}, #{deptId}, #{entryDate}, #{createTime}, #{updateTime})
+    </insert>
+
+    <!-- 批量插入员工工作经历 -->
+    <insert id="insertBatchExpr">
+        INSERT INTO emp_expr (emp_id, company, profession, begin, end)
+        VALUES
+        <foreach collection="exprList" item="expr" separator=",">
+            (#{empId}, #{expr.company}, #{expr.profession}, #{expr.begin}, #{expr.end})
+        </foreach>
+    </insert>
 
 </mapper>

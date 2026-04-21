@@ -1,8 +1,10 @@
 package com.tlias.mapper;
 
 import com.tlias.pojo.Emp;
+import com.tlias.pojo.EmpExprDTO;
 import com.tlias.pojo.EmpQueryParam;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import java.util.List;
 
 /**
@@ -21,4 +23,17 @@ public interface EmpMapper {
      * @return 员工列表
      */
     List<Emp> list(EmpQueryParam param);
+    
+    /**
+     * 新增员工
+     * @param emp 员工信息
+     */
+    void insert(Emp emp);
+    
+    /**
+     * 批量插入员工工作经历
+     * @param empId 员工ID
+     * @param exprList 工作经历列表
+     */
+    void insertBatchExpr(@Param("empId") Integer empId, @Param("exprList") List<EmpExprDTO> exprList);
 }
