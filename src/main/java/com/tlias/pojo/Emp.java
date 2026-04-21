@@ -19,7 +19,6 @@ public class Emp {
     private String name;
     private Integer gender;
     private String phone;
-    private Integer jobId;
     private Integer deptId;
     private LocalDate entryDate;
     private LocalDateTime createTime;

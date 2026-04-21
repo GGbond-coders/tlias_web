@@ -23,19 +23,27 @@ public class EmpServiceImpl implements EmpService {
     
     @Override
     public PageBean page(EmpQueryParam param) {
-        // 1. 设置分页参数（PageHelper会自动拦截SQL并添加LIMIT）
+        // 1. 处理分页参数默认值
+        if (param.getPage() == null || param.getPage() < 1) {
+            param.setPage(1);
+        }
+        if (param.getPageSize() == null || param.getPageSize() < 1) {
+            param.setPageSize(10);
+        }
+        
+        // 2. 设置分页参数（PageHelper会自动拦截SQL并添加LIMIT）
         PageHelper.startPage(param.getPage(), param.getPageSize());
         
-        // 2. 执行查询（PageHelper会自动在SQL后添加LIMIT子句）
+        // 3. 执行查询（PageHelper会自动在SQL后添加LIMIT子句）
         java.util.List<com.tlias.pojo.Emp> list = empMapper.list(param);
         
-        // 3. 封装PageInfo对象（包含分页信息和数据列表）
+        // 4. 封装PageInfo对象（包含分页信息和数据列表）
         PageInfo<com.tlias.pojo.Emp> pageInfo = new PageInfo<>(list);
         
         log.info("分页查询结果 - 总记录数: {}, 当前页: {}, 每页条数: {}", 
                 pageInfo.getTotal(), pageInfo.getPageNum(), pageInfo.getPageSize());
         
-        // 4. 返回封装好的分页数据
+        // 5. 返回封装好的分页数据
         return new PageBean(pageInfo.getTotal(), pageInfo.getList());
     }
 }
