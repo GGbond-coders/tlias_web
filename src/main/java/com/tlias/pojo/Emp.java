@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * 员工实体类
@@ -19,6 +20,9 @@ public class Emp {
     private String name;
     private Integer gender;
     private String phone;
+    private String job;
+    private Integer salary;
+    private String image;
     private Integer deptId;
     private LocalDate entryDate;
     private LocalDateTime createTime;
@@ -28,4 +32,6 @@ public class Emp {
      * 部门名称（关联查询字段）
      */
     private String deptName;
+    private List<EmpExpr> exprList;
+
 }

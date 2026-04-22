@@ -1,9 +1,6 @@
 package com.tlias.service;
 
-import com.tlias.pojo.Emp;
-import com.tlias.pojo.EmpExprDTO;
-import com.tlias.pojo.EmpQueryParam;
-import com.tlias.pojo.PageBean;
+import com.tlias.pojo.*;
 
 import java.util.List;
 
@@ -22,5 +19,22 @@ public interface EmpService {
      * @param emp 员工基本信息
      * @param exprList 工作经历列表
      */
-    void add(Emp emp, List<EmpExprDTO> exprList);
+    void add(Emp emp, List<EmpExpr> exprList);
+    
+    /**
+     * 批量删除员工（包含工作经历）
+     * @param ids 员工ID列表
+     */
+    void delete(List<Integer> ids);
+
+    /**
+     * 根据ID查询员工
+     */
+    Emp getById(Integer id);
+
+    /**
+     * 更新员工信息
+     * @param emp
+     */
+    void update(Emp emp);
 }

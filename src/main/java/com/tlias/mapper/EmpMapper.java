@@ -1,10 +1,12 @@
 package com.tlias.mapper;
 
 import com.tlias.pojo.Emp;
-import com.tlias.pojo.EmpExprDTO;
+import com.tlias.pojo.EmpExpr;
 import com.tlias.pojo.EmpQueryParam;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
+
 import java.util.List;
 
 /**
@@ -35,5 +37,38 @@ public interface EmpMapper {
      * @param empId 员工ID
      * @param exprList 工作经历列表
      */
-    void insertBatchExpr(@Param("empId") Integer empId, @Param("exprList") List<EmpExprDTO> exprList);
+    void insertBatchExpr(@Param("empId") Integer empId, @Param("exprList") List<EmpExpr> exprList);
+    
+    /**
+     * 根据ID删除员工
+     * @param id 员工ID
+     */
+    void deleteById(Integer id);
+    
+    /**
+     * 根据员工ID删除工作经历
+     * @param empId 员工ID
+     */
+    void deleteExprByEmpId(Integer empId);
+
+    /**
+     * 根据ID查询员工
+     * @param id 员工ID
+     * @return 员工信息
+     */
+    // EmpMapper
+    @Select("select * from emp where id = #{id}")
+    Emp getById(Integer id);
+
+    // EmpExprMapper
+    @Select("select * from emp_expr where emp_id = #{empId}")
+    List<EmpExpr> getExprByEmpId(Integer empId);
+
+
+    /**
+     * 更新员工基本信息
+     */
+    void updateById(Emp emp);
+
+
 }

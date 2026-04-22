@@ -19,5 +19,5 @@ public class EmpAddDTO {
     @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate entryDate;
 
-    private List<EmpExprDTO> exprList;
+    private List<EmpExpr> exprList;
 }
