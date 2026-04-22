@@ -4,18 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0ed58b6b-bf35-4ccf-953c-de7ca6633fec" name="更改" comment="day02：1.添加员工功能">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="0ed58b6b-bf35-4ccf-953c-de7ca6633fec" name="更改" comment="day02：1.删除+修改员工功能（大调）">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/controller/EmpController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/controller/EmpController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/mapper/EmpMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/mapper/EmpMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/pojo/Emp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/pojo/Emp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/pojo/EmpAddDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/pojo/EmpAddDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/pojo/EmpExprDTO.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/service/EmpService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/service/EmpService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/tlias/service/impl/EmpServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/tlias/service/impl/EmpServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/mapper/EmpMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/TliasSystemApplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/TliasSystemApplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/controller/DeptController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/controller/DeptController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/controller/Result.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/controller/Result.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/mapper/DeptMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/mapper/DeptMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/pojo/Dept.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/pojo/Dept.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/service/DeptService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/service/DeptService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/tlias/service/impl/DeptServiceImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/tlias/service/impl/DeptServiceImpl.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +127,7 @@
       <workItem from="1776689704530" duration="378000" />
       <workItem from="1776690091018" duration="2801000" />
       <workItem from="1776753916639" duration="15846000" />
-      <workItem from="1776821754015" duration="8305000" />
+      <workItem from="1776821754015" duration="9846000" />
     </task>
     <task id="LOCAL-00001" summary="day01：部门管理功能">
       <option name="closed" value="true" />
@@ -196,7 +193,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776780612542</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="day02：1.删除+修改员工功能（大调）">
+      <option name="closed" value="true" />
+      <created>1776850890561</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1776850890561</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -231,7 +236,8 @@
     <MESSAGE value="day02：1.员工信息查询初步实现" />
     <MESSAGE value="day02：1.员工信息查询初步实现2" />
     <MESSAGE value="day02：1.添加员工功能" />
-    <option name="LAST_COMMIT_MESSAGE" value="day02：1.添加员工功能" />
+    <MESSAGE value="day02：1.删除+修改员工功能（大调）" />
+    <option name="LAST_COMMIT_MESSAGE" value="day02：1.删除+修改员工功能（大调）" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

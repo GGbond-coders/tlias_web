@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlias 智能管理台</title>
+    <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div class="app-shell">
+    <aside class="sidebar">
+        <div class="brand">
+            <span class="brand-mark">TL</span>
+            <div>
+                <h1>Tlias Console</h1>
+                <p>部门与员工一体化管理</p>
+            </div>
+        </div>
+        <nav class="nav">
+            <button class="nav-link active" data-view="dashboard">数据看板</button>
+            <button class="nav-link" data-view="departments">部门管理</button>
+            <button class="nav-link" data-view="employees">员工管理</button>
+        </nav>
+        <div class="sidebar-panel">
+            <p class="sidebar-title">系统能力</p>
+            <ul class="feature-list">
+                <li>部门增删改查</li>
+                <li>员工分页筛选</li>
+                <li>工作经历维护</li>
+                <li>批量删除员工</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main">
+        <header class="hero">
+            <div>
+                <p class="eyebrow">Web Backend Frontend</p>
+                <h2>把后端能力直接变成可操作的业务界面</h2>
+                <p class="hero-text">基于当前 Spring Boot 接口实现，无需额外前端工程，启动后端即可直接访问。</p>
+            </div>
+            <div class="hero-actions">
+                <button class="ghost-btn" id="refreshAllBtn">刷新数据</button>
+                <div class="status-pill" id="statusPill">准备就绪</div>
+            </div>
+        </header>
+
+        <section class="view active" id="dashboardView">
+            <div class="stats-grid">
+                <article class="stat-card">
+                    <span>部门数量</span>
+                    <strong id="deptCount">0</strong>
+                    <p>支持新增、编辑与删除部门</p>
+                </article>
+                <article class="stat-card accent">
+                    <span>员工总数</span>
+                    <strong id="empCount">0</strong>
+                    <p>支持分页查询与批量操作</p>
+                </article>
+                <article class="stat-card warm">
+                    <span>女性员工</span>
+                    <strong id="femaleCount">0</strong>
+                    <p>来自当前筛选前的全量数据统计</p>
+                </article>
+                <article class="stat-card cool">
+                    <span>带工作经历员工</span>
+                    <strong id="exprCount">0</strong>
+                    <p>点击员工详情可查看经历列表</p>
+                </article>
+            </div>
+
+            <div class="panel-grid">
+                <section class="panel">
+                    <div class="panel-head">
+                        <h3>部门分布</h3>
+                        <span>按员工归属统计</span>
+                    </div>
+                    <div id="deptDistribution" class="bar-list empty-state">暂无数据</div>
+                </section>
+                <section class="panel">
+                    <div class="panel-head">
+                        <h3>最近入职员工</h3>
+                        <span>按入职日期倒序展示</span>
+                    </div>
+                    <div id="recentEmployees" class="simple-list empty-state">暂无数据</div>
+                </section>
+            </div>
+        </section>
+
+        <section class="view" id="departmentsView">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Department</p>
+                    <h3>部门管理</h3>
+                </div>
+                <button class="primary-btn" id="addDeptBtn">新增部门</button>
+            </div>
+            <div class="panel">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>部门名称</th>
+                            <th>创建时间</th>
+                            <th>更新时间</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="deptTableBody">
+                        <tr><td colspan="5" class="empty-state">正在加载部门数据...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section class="view" id="employeesView">
+            <div class="section-head">
+                <div>
+                    <p class="eyebrow">Employee</p>
+                    <h3>员工管理</h3>
+                </div>
+                <div class="inline-actions">
+                    <button class="ghost-btn" id="batchDeleteBtn">批量删除</button>
+                    <button class="primary-btn" id="addEmpBtn">新增员工</button>
+                </div>
+            </div>
+
+            <section class="panel">
+                <form id="filterForm" class="filter-grid">
+                    <label>
+                        <span>姓名</span>
+                        <input type="text" name="name" placeholder="支持模糊查询">
+                    </label>
+                    <label>
+                        <span>性别</span>
+                        <select name="gender">
+                            <option value="">全部</option>
+                            <option value="1">男</option>
+                            <option value="2">女</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>部门</span>
+                        <select name="deptId" id="filterDeptId">
+                            <option value="">全部部门</option>
+                        </select>
+                    </label>
+                    <label>
+                        <span>入职开始</span>
+                        <input type="date" name="begin">
+                    </label>
+                    <label>
+                        <span>入职结束</span>
+                        <input type="date" name="end">
+                    </label>
+                    <div class="filter-actions">
+                        <button type="submit" class="primary-btn">查询</button>
+                        <button type="button" class="ghost-btn" id="resetFilterBtn">重置</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="panel">
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th><input type="checkbox" id="selectAllEmps"></th>
+                            <th>ID</th>
+                            <th>用户名</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>手机号</th>
+                            <th>部门</th>
+                            <th>入职日期</th>
+                            <th>操作</th>
+                        </tr>
+                        </thead>
+                        <tbody id="empTableBody">
+                        <tr><td colspan="9" class="empty-state">正在加载员工数据...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <div id="pageSummary">共 0 条</div>
+                    <div class="inline-actions">
+                        <button class="ghost-btn" id="prevPageBtn">上一页</button>
+                        <span id="pageNumber">1 / 1</span>
+                        <button class="ghost-btn" id="nextPageBtn">下一页</button>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </main>
+</div>
+
+<div class="modal hidden" id="deptModal">
+    <div class="modal-card">
+        <div class="modal-head">
+            <h3 id="deptModalTitle">新增部门</h3>
+            <button class="icon-btn" data-close="deptModal">×</button>
+        </div>
+        <form id="deptForm" class="form-grid">
+            <input type="hidden" name="id">
+            <label>
+                <span>部门名称</span>
+                <input type="text" name="name" maxlength="100" required placeholder="请输入部门名称">
+            </label>
+            <div class="form-actions">
+                <button type="button" class="ghost-btn" data-close="deptModal">取消</button>
+                <button type="submit" class="primary-btn">保存</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal hidden" id="empModal">
+    <div class="modal-card large">
+        <div class="modal-head">
+            <h3 id="empModalTitle">新增员工</h3>
+            <button class="icon-btn" data-close="empModal">×</button>
+        </div>
+        <form id="empForm" class="form-grid two-column">
+            <input type="hidden" name="id">
+            <label>
+                <span>用户名</span>
+                <input type="text" name="username" maxlength="50" required>
+            </label>
+            <label>
+                <span>密码</span>
+                <input type="text" name="password" maxlength="50" required>
+            </label>
+            <label>
+                <span>姓名</span>
+                <input type="text" name="name" maxlength="50" required>
+            </label>
+            <label>
+                <span>手机号</span>
+                <input type="text" name="phone" maxlength="20" required>
+            </label>
+            <label>
+                <span>性别</span>
+                <select name="gender" required>
+                    <option value="1">男</option>
+                    <option value="2">女</option>
+                </select>
+            </label>
+            <label>
+                <span>所属部门</span>
+                <select name="deptId" id="empDeptId" required></select>
+            </label>
+            <label class="full-row">
+                <span>入职日期</span>
+                <input type="date" name="entryDate" required>
+            </label>
+
+            <section class="experience-section full-row">
+                <div class="panel-head tight">
+                    <h4>工作经历</h4>
+                    <button type="button" class="ghost-btn" id="addExprBtn">新增经历</button>
+                </div>
+                <div id="exprContainer" class="expr-list"></div>
+            </section>
+
+            <div class="form-actions full-row">
+                <button type="button" class="ghost-btn" data-close="empModal">取消</button>
+                <button type="submit" class="primary-btn">保存员工</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="modal hidden" id="detailModal">
+    <div class="modal-card">
+        <div class="modal-head">
+            <h3>员工详情</h3>
+            <button class="icon-btn" data-close="detailModal">×</button>
+        </div>
+        <div id="detailContent" class="detail-content"></div>
+    </div>
+</div>
+
+<template id="exprTemplate">
+    <div class="expr-item">
+        <div class="expr-head">
+            <strong>工作经历</strong>
+            <button type="button" class="text-btn remove-expr-btn">移除</button>
+        </div>
+        <div class="expr-grid">
+            <label>
+                <span>公司名称</span>
+                <input type="text" data-field="company" maxlength="100" placeholder="请输入公司名称">
+            </label>
+            <label>
+                <span>岗位名称</span>
+                <input type="text" data-field="profession" maxlength="100" placeholder="请输入岗位名称">
+            </label>
+            <label>
+                <span>开始日期</span>
+                <input type="date" data-field="begin">
+            </label>
+            <label>
+                <span>结束日期</span>
+                <input type="date" data-field="end">
+            </label>
+        </div>
+    </div>
+</template>
+
+<script src="./app.js"></script>
+</body>
+</html>
